@@ -1,5 +1,8 @@
 
-/* General page styling */
+/* =====================================
+   GENERAL WEBSITE STYLING
+===================================== */
+
 * {
     box-sizing: border-box;
 }
@@ -12,7 +15,11 @@ body {
     line-height: 1.7;
 }
 
-/* Header styling */
+
+/* =====================================
+   HEADER
+===================================== */
+
 header {
     background-color: #173b67;
     color: white;
@@ -29,7 +36,11 @@ header p {
     margin: 8px 0 20px;
 }
 
-/* Navigation styling */
+
+/* =====================================
+   NAVIGATION
+===================================== */
+
 nav {
     display: flex;
     justify-content: center;
@@ -43,20 +54,29 @@ nav a {
     font-weight: bold;
     padding: 8px 12px;
     border-radius: 6px;
+    transition: background-color 0.2s ease;
 }
 
 nav a:hover {
     background-color: #315b89;
 }
 
-/* Main content styling */
+
+/* =====================================
+   MAIN CONTENT
+===================================== */
+
 main {
     max-width: 900px;
     margin: 30px auto;
     padding: 0 20px;
 }
 
-/* Content sections */
+
+/* =====================================
+   WEBSITE SECTIONS
+===================================== */
+
 section {
     background-color: white;
     margin-bottom: 22px;
@@ -70,36 +90,34 @@ section h2 {
     margin-top: 0;
 }
 
-/* List spacing */
-li {
-    margin-bottom: 8px;
+
+/* =====================================
+   SKILLS SECTION
+===================================== */
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
 }
 
-/* Footer styling */
-footer {
-    background-color: #e2e8f0;
-    color: #334155;
-    text-align: center;
-    padding: 20px;
+.skills-list li {
+    background-color: #dbeafe;
+    color: #173b67;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-bottom: 0;
 }
 
-/* Smaller screens */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 28px;
-    }
 
-    main {
-        margin: 20px auto;
-        padding: 0 12px;
-    }
+/* =====================================
+   PROJECT CARDS
+===================================== */
 
-    section {
-        padding: 18px;
-    }
-}
-
-/* Projects layout */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(
@@ -110,7 +128,6 @@ footer {
     margin-top: 25px;
 }
 
-/* Individual project cards */
 .project-card {
     background-color: #f8fafc;
     padding: 20px;
@@ -120,24 +137,16 @@ footer {
                 box-shadow 0.2s ease;
 }
 
-/* Project headings */
 .project-card h3 {
     color: #173b67;
     margin-top: 0;
 }
 
-/* Project descriptions */
-.project-card p {
-    font-size: 15px;
-}
-
-/* Hover effect */
 .project-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.10);
 }
 
-/* Technology labels */
 .project-tag {
     display: inline-block;
     background-color: #dbeafe;
@@ -148,26 +157,126 @@ footer {
     font-weight: bold;
 }
 
-/* Flexbox practice */
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    list-style: none;
-    padding: 0;
-}
 
-.skills-list li {
-    background-color: #dbeafe;
-    color: #173b67;
+/* =====================================
+   BUTTONS
+===================================== */
+
+button {
+    background-color: #173b67;
+    color: white;
     padding: 12px 20px;
+    border: none;
     border-radius: 8px;
+    cursor: pointer;
     font-weight: bold;
-    margin-bottom: 0;
+    font-size: 15px;
+    transition: background-color 0.2s ease;
 }
 
-/* Responsive design for mobile phones */
+button:hover {
+    background-color: #315b89;
+}
+
+
+/* =====================================
+   INPUT FIELDS
+===================================== */
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid #4387d5;
+    border-color: #4387d5;
+}
+
+
+/* =====================================
+   ABOUT ME GREETING
+===================================== */
+
+#about input {
+    max-width: 400px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+#about button {
+    margin-bottom: 10px;
+}
+
+
+/* =====================================
+   DAY 11: CONTACT FORM
+===================================== */
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+#contactForm label {
+    font-weight: bold;
+    color: #173b67;
+}
+
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+}
+
+#contactForm textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#contactForm button {
+    width: fit-content;
+    min-width: 150px;
+}
+
+#formFeedback {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+    background-color: #173b67;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+footer a {
+    color: #bfdbfe;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
 @media (max-width: 600px) {
 
     header {
@@ -175,23 +284,22 @@ footer {
     }
 
     header h1 {
-        font-size: 26px;
+        font-size: 28px;
     }
 
     nav {
         flex-direction: column;
         align-items: center;
-        gap: 8px;
     }
 
     nav a {
-        display: block;
         width: 100%;
         max-width: 250px;
         text-align: center;
     }
 
     main {
+        margin: 20px auto;
         padding: 0 12px;
     }
 
@@ -203,7 +311,8 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .skills-list {
-        justify-content: flex-start;
+    #contactForm button {
+        width: 100%;
     }
 }
+

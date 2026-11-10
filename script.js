@@ -1,122 +1,84 @@
 
-// =====================================
-// DAY 7: JAVASCRIPT FUNDAMENTALS
-// =====================================
+// ======================================
+// DAY 11: CONTACT FORM VALIDATION
+// ======================================
 
 
-// LESSON 1: VARIABLES
+// STEP 1: Select HTML form elements
 
-const learnerName = "Eunice Wangeci";
+const contactForm = document.getElementById("contactForm");
 
-let learningDay = 7;
+const contactNameInput = document.getElementById("contactName");
 
-const isLearningJavaScript = true;
+const contactEmailInput = document.getElementById("contactEmail");
 
-console.log(learnerName);
-console.log(learningDay);
-console.log(isLearningJavaScript);
+const contactMessageInput = document.getElementById("contactMessage");
 
-
-// LESSON 2: MATHEMATICAL OPERATORS
-
-let firstNumber = 20;
-let secondNumber = 10;
-
-console.log(firstNumber + secondNumber);
-console.log(firstNumber - secondNumber);
-console.log(firstNumber * secondNumber);
-console.log(firstNumber / secondNumber);
+const formFeedback = document.getElementById("formFeedback");
 
 
-// LESSON 3: CONDITIONAL STATEMENTS
+// STEP 2: Listen for form submission
 
-let learningProgress = 7;
+if (contactForm) {
 
-if (learningProgress >= 7) {
-    console.log("Congratulations! You have completed Week 1.");
-} else {
-    console.log("Keep learning. You are making progress!");
-}
+    contactForm.addEventListener("submit", function(event) {
 
-
-// LESSON 4: ARRAYS AND LOOPS
-
-const skills = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "Git and GitHub"
-];
-
-console.log(skills);
-
-for (const skill of skills) {
-    console.log("I am learning: " + skill);
-}
+        // Prevent the page from refreshing
+        event.preventDefault();
 
 
-// LESSON 5: FUNCTIONS AND PARAMETERS
+        // STEP 3: Collect visitor information
 
-function calculateStudyHours(hoursPerDay, days) {
-    return hoursPerDay * days;
-}
+        const contactName = contactNameInput.value.trim();
 
-const totalStudyHours = calculateStudyHours(2, 30);
+        const contactEmail = contactEmailInput.value.trim();
 
-console.log("My total study hours are: " + totalStudyHours);
+        const contactMessage = contactMessageInput.value.trim();
 
 
-// =====================================
-// DAY 8: DOM MANIPULATION
-// =====================================
+        // STEP 4: Check whether any field is empty
+
+        if (
+            contactName === "" ||
+            contactEmail === "" ||
+            contactMessage === ""
+        ) {
+
+            formFeedback.textContent =
+                "Please complete all fields.";
+
+            formFeedback.style.color = "red";
+
+            return;
+        }
 
 
-// STEP 1: Select HTML elements
+        // STEP 5: Validate the email address
 
-const visitorNameInput =
-    document.getElementById("visitorName");
+        if (!contactEmailInput.checkValidity()) {
 
-const greetButton =
-    document.getElementById("greetButton");
+            formFeedback.textContent =
+                "Please enter a valid email address.";
 
-const greetingMessage =
-    document.getElementById("greetingMessage");
+            formFeedback.style.color = "red";
 
-
-// STEP 2: Create the greeting function
-
-function showGreeting() {
-
-    // Get the visitor's name
-    const visitorName = visitorNameInput.value.trim();
-
-    // STEP 3: Validate the input
-
-    if (visitorName === "") {
-
-        greetingMessage.textContent =
-            "Please enter your name first.";
-
-        greetingMessage.style.color = "red";
-
-    } else {
-
-        // Display a personalised greeting
-
-        greetingMessage.textContent =
-            "Hello " + visitorName +
-            "! Welcome to Eunice Wangeci's portfolio.";
-
-        greetingMessage.style.color = "green";
-
-    }
-}
+            return;
+        }
 
 
-// STEP 4: Detect button clicks
+        // STEP 6: Display a success message
 
-if (visitorNameInput && greetButton && greetingMessage) {
-    greetButton.addEventListener("click", showGreeting);
-} else {
-    console.error("One or more greeting HTML elements could not be found.");
+        formFeedback.textContent =
+            "Thank you, " + contactName +
+            "! Your message has been validated successfully.";
+
+        formFeedback.style.color = "green";
+
+
+        // STEP 7: Clear the form
+
+        contactForm.reset();
+
+    });
+
 }
